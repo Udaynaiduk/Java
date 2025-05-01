@@ -1,0 +1,251 @@
+Predicates
+-----------
+
+A predicate is a function with a single argument and returns boolean value.
+
+public class PredicateDemo {
+
+	public static void main(String[] args) {
+		Predicate<String> p = (s) -> s.equalsIgnoreCase("up");
+		System.out.println(p.test("up"));
+	}
+
+}
+
+Q)Write a predicate to check the given number even or odd ?
+
+---------------------------------
+
+Supplier
+--------
+Supplier won't take any input and it will always supply objects.
+ Supplier Functional Interface contains only one method get().
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+		Supplier<Employee> s = () -> {
+			System.out.println("Hello");
+			return new Employee();
+		};
+		System.out.println(s.get());
+	}
+
+}
+
+class Employee {
+	int id;
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + "]";
+	}
+
+}
+
+Supplier won't take any input and it will always supply objects
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+		Supplier<Integer> s = () -> {
+			System.out.println("Hello");
+			return (int)(Math.random()*1000);};
+		System.out.println(s.get());
+	}
+
+}
+
+Random Password generator.
+---------------------
+
+Consumer
+---------
+
+public class ConsumerDemo {
+
+	public static void main(String[] args) {
+		List<String> stringList = Arrays.asList("Hi", "Hello");
+
+		Consumer<List<String>> c = (s) -> {
+			s.forEach(k -> System.out.println(k));
+			;
+		};
+		
+		c.accept(stringList);
+		Consumer<String> c1=(s) -> {
+			System.out.println(s);
+			System.out.println(s.toUpperCase());
+		};
+		
+		c1.accept("up");
+	}
+
+}
+
+----------------------------
+
+
+Functions
+---------
+
+Functions are exactly same as predicates except
+ that functions can return any type of result but
+ function should (can) return only one value
+ and that value can be any type as per our requirement.
+ 
+public class FunctionDemo {
+
+	public static void main(String[] args) {
+		
+		Function<String, String> f=(s) -> s.toLowerCase();
+		
+		System.out.println(f.apply("AB"));
+
+	}
+
+}
+
+------Foreach--------
+import java.util.ArrayList;  
+import java.util.List;  
+public class ForEachExample {  
+    public static void main(String[] args) {  
+        List<String> gamesList = new ArrayList<String>();  
+        gamesList.add("Football");  
+        gamesList.add("Cricket");  
+        gamesList.add("Chess");  
+        gamesList.add("Hocky");  
+        System.out.println("------------Iterating by passing lambda expression--------------");  
+        gamesList.forEach(games -> System.out.println(games));  
+          
+    }  
+}  
+--------------*********------------
+
+-------------------------------------------------
+Method and Constructor references by using ::(double colon) operator
+
+Functional Interface method can be mapped to our specified method by using :: (double colon) operator. This is called method reference
+
+
+interface Sayable{  
+    void say();  
+}  
+public class MethodReference {  
+    public static void saySomething(){  
+        System.out.println("Hello, this is static method.");  
+    }  
+    public static void main(String[] args) {  
+        // Referring static method  
+        Sayable sayable = MethodReference::saySomething;  
+        // Calling interface method  
+        sayable.say();  
+    }  
+}  
+
+
+
+Our specified method can be either static method or instance method.
+ Functional Interface method and our specified method should have same argument types, except this the remaining things like
+ returntype, methodname, modifiersetc are not required to match.
+
+Classname::methodName
+if the method is instance method
+Objref::methodName
+
+
+Constructor References
+We can use :: ( double colon )operator to refer constructors also
+Syntax: classname :: new
+
+package com;
+
+public class ConstructorReferenceDemo {
+	
+	public static void main(String[] args) {
+		EmployeeService es=Employee::new;
+		Employee employee = es.getEmployee();
+		System.out.println(employee.id=100);
+	}
+
+}
+
+
+
+interface EmployeeService{
+	
+	Employee getEmployee();
+}
+
+
+interface Messageable{  
+    Message getMessage(String msg);  
+}  
+class Message{  
+    Message(String msg){  
+        System.out.print(msg);  
+    }  
+}  
+public class ConstructorReference {  
+    public static void main(String[] args) {  
+        Messageable hello = Message::new;  
+        hello.getMessage("Hello");  
+    }  
+}  
+----------------------------------------
+
+Streams
+
+To process objects of the collection, in 1.8 version Streams concept introduced
+
+Java Example: Filtering Collection without using Stream
+In the following example, we are filtering data without using stream. This approach we are used before the stream package was released.
+
+
+********Code***********
+import java.util.*;  
+class Product{  
+    int id;  
+    String name;  
+    float price;  
+    public Product(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+public class JavaStreamExample {  
+    public static void main(String[] args) {  
+        List<Product> productsList = new ArrayList<Product>();  
+        //Adding Products  
+        productsList.add(new Product(1,"HP Laptop",25000f));  
+        productsList.add(new Product(2,"Dell Laptop",30000f));  
+        productsList.add(new Product(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product(4,"Sony Laptop",28000f));  
+        productsList.add(new Product(5,"Apple Laptop",90000f));  
+        List<Float> productPriceList = new ArrayList<Float>();  
+        for(Product product: productsList){  
+              
+            // filtering data of list  
+            if(product.price<30000){  
+                productPriceList.add(product.price);    // adding price to a productPriceList  
+            }  
+        }  
+        System.out.println(productPriceList);   // displaying data  
+    }  
+}  
+**********
+With streams ****
+
+List<Float> productPriceList2 =productsList.stream()  
+                                     .filter(p -> p.price > 30000)// filtering data  
+                                     .map(p->p.price)        // fetching price  
+                                     .collect(Collectors.toList()); // collecting as list  
+									 
+						
+
+Date and Time API: (Joda-Time API)
+Until Java 1.7version the classes present in Java.util package to handle Date and Time (like Date, Calendar, TimeZoneetc) are not up to the mark with respect to convenience and performance.
+To overcome this problem in the 1.8version oracle people introduced Joda-Time API. This API developed by joda.org and available in Java in the form of Java.time package.
+
