@@ -1,0 +1,45 @@
+Java Interview questions
+
+1.What is the difference between JDK and JRE?
+2. What is Java Virtual Machine (JVM)?
+3. What are the different types of memory areas allocated by JVM?
+4. What is JIT compiler?
+5. How Java platform is different from other platforms?
+6. Why people say that Java is 'write once and run anywhere' language?
+7. Do you think ‘main’ used for main method is a keyword in Java?
+8. Can we write main method as public void static instead of public static void?
+9. In Java, if we do not specify any value for local variables, then what will be the default value of the local variables?
+
+OOP
+
+10. What are the main principles of Object Oriented Programming?
+11. What is the difference between Object Oriented Programming
+language and Object Based Programming language?
+12. In Java what is the default value of an object reference defined as an
+instance variable in an Object?
+13. Why do we need constructor in Java?
+14 What is the value returned by Constructor in Java?
+15. Can we inherit a Constructor?
+16. Why constructors cannot be final, static, or abstract in Java? 
+
+Inheritance
+
+17. What is the purpose of ‘this’ keyword in java?
+18. Explain the concept of Inheritance?
+19. Which class in Java is superclass of every other class?
+20. Why Java does not support multiple inheritance?
+21. What is the purpose of ‘super’ keyword in java?
+22. Is it possible to use this() and super() both in same constructor?
+23. In Java, why do we use static variable?
+24. Why it is not a good practice to create static variables in Java?
+25. What is the purpose of static method in Java?
+26. What happens when static modifier is not mentioned in the signature of main method?
+27. What is the difference between static method and instance method in Java?
+
+Method Overloading
+
+28. What is the other name of Method Overloading?
+29. How will you implement method overloading in Java?
+30. What kinds of argument variations are allowed in Method Overloading?
+31. Why it is not possible to do method overloading by changing return type of method in java?
+32. Is it allowed to overload main() method in Java?
