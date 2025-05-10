@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="org.example"></context:component-scan>
+
+    <context:property-placeholder location="classpath:app.properties"/>
+    <bean class="org.example.Student" id="Student">
+        <property name="id" value="1"/>
+        <property name="name" value="uday"/>
+    </bean>
+
+    <bean class="org.example.Address" id="address">
+        <property name="dono" value="35-62"/>
+        <property name="city" value="Nandigama Bytype"/>
+    </bean>
+
+    <bean class="org.example.Address" id="address2">
+        <property name="dono" value="35-62"/>
+        <property name="city" value="Nandigama  byName"/>
+    </bean>
+
+    <bean class="org.example.properties" id="autoproperties"/>
+</beans>

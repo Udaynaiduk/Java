@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- JDBC Driver Class -->
+        <property name="hibernate.connection.driver_class">
+            com.microsoft.sqlserver.jdbc.SQLServerDriver
+        </property>
+
+        <!-- JDBC Connection URL (update if using a static port like 1433) -->
+        <property name="hibernate.connection.url">
+            jdbc:sqlserver://INL-9SHCPL3\SQL2022EXPRESS;databaseName=Test1;encrypt=true;trustServerCertificate=true
+        </property>
+
+        <!-- Database credentials -->
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password">Password@123</property>
+
+        <!-- Hibernate dialect for SQL Server -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.SQLServerDialect
+        </property>
+
+        <!-- Optional debugging and schema options -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- <property name="hibernate.hbm2ddl.auto">create</property>
+
+        Optional: Connection pool settings for development
+        <property name="hibernate.connection.pool_size">5</property> -->
+
+    </session-factory>
+
+</hibernate-configuration>

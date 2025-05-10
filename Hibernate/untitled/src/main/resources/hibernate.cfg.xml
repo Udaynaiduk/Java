@@ -28,9 +28,10 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <!-- Optional: Connection pool settings for development -->
-        <property name="hibernate.connection.pool_size">5</property>
+        Optional: Connection pool settings for development
+        <property name="hibernate.connection.pool_size">5</property> -->
 
     </session-factory>
 
