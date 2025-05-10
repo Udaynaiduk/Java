@@ -12,7 +12,7 @@ public  class EMPDtoImplements implements EmpDto{
     HibernateTemplate hibernateTemplate;
 
     @Override
-    @Transactional
+    @Transactional//no need to creat  @Autowired for HibernateTransactionManager beacause of xml tag <tx:annotation-driven transaction-manager="HibernateTransactionManager"/>
     public int insertEmp(Emp emp) {
        hibernateTemplate.saveOrUpdate(emp);
        return 1;
